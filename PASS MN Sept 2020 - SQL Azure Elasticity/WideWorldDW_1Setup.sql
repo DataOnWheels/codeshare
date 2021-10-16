@@ -61,8 +61,8 @@ create external data source dsWideWorldDW_2
   with
 	(
 		type=RDBMS,
-		location='dowelastic-1.database.windows.net',
-		database_name = 'WideWorldDW-2',
+		location='<<servername>>.database.windows.net',
+		database_name = 'WideWorldDW_2',
 		credential = elastic
 	)
 ;
@@ -71,8 +71,8 @@ create external data source dsWideWorldDW_3
   with
 	(
 		type=RDBMS,
-		location='dowelastic-1.database.windows.net',
-		database_name = 'WideWorldDW-3',
+		location='<<servername>>.database.windows.net',
+		database_name = 'WideWorldDW_3',
 		credential = elastic
 	)
 ;

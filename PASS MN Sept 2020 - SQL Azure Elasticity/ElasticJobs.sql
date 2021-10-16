@@ -26,7 +26,7 @@ go
 exec jobs.sp_add_target_group_member 
 	@target_group_name = N'tgWideWorldDWs'
 	,@target_type = N'SqlDatabase'
-	,@server_name = N'dowelastic-1.database.windows.net'
+	,@server_name = N'<<servername>>.database.windows.net'
 	,@database_name = N'WideWorldDW_1'
 ; 
 go
@@ -108,7 +108,7 @@ exec jobs.sp_add_target_group_member
 	@target_group_name = 'tgAllDbs'
 	, @membership_type = 'Exclude'
 	, @target_type = 'SQLDatabase'
-	, @server_name = 'dowelastic-1.database.windows.net'
+	, @server_name = '<<servername>>.database.windows.net'
 	, @database_name = 'WideWorldImportersDW-Standard'
 ;
 go
@@ -117,7 +117,7 @@ exec jobs.sp_add_target_group_member
 	@target_group_name = 'tgAllDbs'
 	, @membership_type = 'Exclude'
 	, @target_type = 'SQLDatabase'
-	, @server_name = 'dowelastic-1.database.windows.net'
+	, @server_name = '<<servername>>.database.windows.net'
 	, @database_name = 'ElasticJobDb'
 ;
 go
