@@ -26,7 +26,7 @@ go
 exec jobs.sp_add_target_group_member 
 	@target_group_name = N'tgWideWorldDWs'
 	,@target_type = N'SqlDatabase'
-	,@server_name = N'dowelastic-1.database.windows.net'
+	,@server_name = N'<<servername>>.database.windows.net'
 	,@database_name = N'WideWorldDW_1'
 ; 
 go
@@ -59,7 +59,7 @@ select * from jobs.job_executions;
 ------------------------
 -- create server target group
 exec jobs.sp_delete_job @job_name = 'AddGuidTable', @force=1;
-exec jobs.sp_delete_target_group @target_group_name = 'tbAllDbs';
+exec jobs.sp_delete_target_group @target_group_name = 'tgAllDbs';
 go
 
 --- create single database target group
@@ -70,7 +70,7 @@ exec jobs.sp_add_target_group_member
 	@target_group_name = N'tgAllDbs'
 	,@target_type = N'SqlServer'
 	,@refresh_credential_name = N'masterjob' -- credential needed to view the current list of Dbs
-	,@server_name = N'dowelastic-1.database.windows.net'
+	,@server_name = N'<<servername>>.database.windows.net'
 ; 
 go
 
@@ -99,7 +99,7 @@ select * from jobs.job_executions where job_name = 'AddGuidTable';
 select * from jobs.job_executions where is_active = 1 and job_name = 'AddGuidTable' order by start_time desc;
 
 -- because we don't have credentials set for one database we need to cancel. Use the following with the active job execution guid from the previous query
-exec jobs.sp_stop_job '305f51f2-0227-4d94-a2aa-4a4e83fc2b06';
+exec jobs.sp_stop_job '22deb45f-e0a2-4dc9-888b-d157ed59c53d';
 
 -- check results -- need to run query on target databases
 
@@ -108,7 +108,7 @@ exec jobs.sp_add_target_group_member
 	@target_group_name = 'tgAllDbs'
 	, @membership_type = 'Exclude'
 	, @target_type = 'SQLDatabase'
-	, @server_name = 'dowelastic-1.database.windows.net'
+	, @server_name = '<<servername>>.database.windows.net'
 	, @database_name = 'WideWorldImportersDW-Standard'
 ;
 go
@@ -117,7 +117,7 @@ exec jobs.sp_add_target_group_member
 	@target_group_name = 'tgAllDbs'
 	, @membership_type = 'Exclude'
 	, @target_type = 'SQLDatabase'
-	, @server_name = 'dowelastic-1.database.windows.net'
+	, @server_name = '<<servername>>.database.windows.net'
 	, @database_name = 'ElasticJobDb'
 ;
 go

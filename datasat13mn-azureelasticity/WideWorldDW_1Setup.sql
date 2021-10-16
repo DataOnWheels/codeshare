@@ -61,8 +61,8 @@ create external data source dsWideWorldDW_2
   with
 	(
 		type=RDBMS,
-		location='dowelastic-1.database.windows.net',
-		database_name = 'WideWorldDW-2',
+		location='<<servername>>.database.windows.net',
+		database_name = 'WideWorldDW_2',
 		credential = elastic
 	)
 ;
@@ -71,8 +71,8 @@ create external data source dsWideWorldDW_3
   with
 	(
 		type=RDBMS,
-		location='dowelastic-1.database.windows.net',
-		database_name = 'WideWorldDW-3',
+		location='<<servername>>.database.windows.net',
+		database_name = 'WideWorldDW_3',
 		credential = elastic
 	)
 ;
@@ -196,10 +196,11 @@ group by si.Brand
 ;
 go
 
--- you can execute T-SQL directly as well with the sp_execute_remote; 
+-- you can execute T-SQL directly as well with the sp_execute_remote; It uses the permissions of the credential
 
 exec sp_execute_remote N'dsWideWorldDW_3', N'select * from dbo.dimSupplier';
 go
 
 exec sp_execute_remote N'dsWideWorldDW_2', N'select * from dbo.Fact_Purchase';
 go
+
