@@ -1,0 +1,23 @@
+- title: README
+  file: /README
+- title: Prep the demo
+  file: /Prep the demo/prep the demo
+  sections:
+    - title: create elastic user login
+      file: /Prep the demo/create elastic user login
+    - title: WideWorldDW_2 Setup
+      file: /Prep the demo/WideWorldDW_2Setup
+    - title: WideWorldDW_3 Setup
+      file: /Prep the demo/WideWorldDW_3Setup
+    - title: WideWorldDW_1 Setup
+      file: /Prep the demo/WideWorldDW_1Setup
+- title: Elastic query
+  file: /Elastic query/elastic query demo
+  sections:
+    - title: Elastic query demo
+      file: /Elastic query/elastic query demo
+- title: Elastic jobs demo
+  file: /Elastic jobs demo/elastic jobs demo
+  sections:
+    - title: Elastic jobs demo
+      file: /Elastic jobs demo/elastic jobs demo
